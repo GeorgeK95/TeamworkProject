@@ -1,5 +1,6 @@
 import controller.AppendCmd;
 import controller.Command;
+import controller.PrependCmd;
 import data.StringList;
 import exceptions.InvalidCommand;
 import exceptions.InvalidParameters;
@@ -33,6 +34,13 @@ public class Main {
                             throw new InvalidParameters();
 
                         command = new AppendCmd(input[1]);
+                        break;
+
+                    case "prepend":
+                        if (input.length != 2)
+                            throw new InvalidParameters();
+
+                        command = new PrependCmd(input[1]);
                         break;
 
                     default:
