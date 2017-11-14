@@ -1,7 +1,4 @@
-import controller.AppendCmd;
-import controller.Command;
-import controller.InsertCmd;
-import controller.PrependCmd;
+import controller.*;
 import data.StringList;
 import exceptions.InvalidCommand;
 import exceptions.InvalidIndex;
@@ -31,7 +28,7 @@ public class Main {
                 Command command;
                 switch (input[0]) {
 
-                    case "append" :
+                    case "append":
                         if (input.length != 2)
                             throw new InvalidParameters();
 
@@ -44,16 +41,24 @@ public class Main {
 
                         command = new PrependCmd(input[1]);
                         break;
-                    case "insert":
+                    case "insert": {
                         if (input.length != 3)
                             throw new InvalidParameters();
 
                         int index = Integer.parseInt(input[1]);
                         String element = input[2];
-                        if (!StringList.isValidIndex(index)){
+                        if (!StringList.isValidIndex(index)) {
                             throw new InvalidIndex(index);
                         }
                         command = new InsertCmd(element, index);
+                    }
+                    break;
+
+                    case "reverse":
+                        if (input.length > 1) {
+                            throw new InvalidParameters();
+                        }
+                        command = new ReverseCmd();
                         break;
 
                     default:
@@ -62,8 +67,7 @@ public class Main {
 
                 if (command != null)
                     command.execute();
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
