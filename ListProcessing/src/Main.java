@@ -1,8 +1,10 @@
 import controller.AppendCmd;
 import controller.Command;
+import controller.InsertCmd;
 import controller.PrependCmd;
 import data.StringList;
 import exceptions.InvalidCommand;
+import exceptions.InvalidIndex;
 import exceptions.InvalidParameters;
 
 import java.io.BufferedReader;
@@ -41,6 +43,17 @@ public class Main {
                             throw new InvalidParameters();
 
                         command = new PrependCmd(input[1]);
+                        break;
+                    case "insert":
+                        if (input.length != 3)
+                            throw new InvalidParameters();
+
+                        int index = Integer.parseInt(input[1]);
+                        String element = input[2];
+                        if (!StringList.isValidIndex(index)){
+                            throw new InvalidIndex(index);
+                        }
+                        command = new InsertCmd(element, index);
                         break;
 
                     default:

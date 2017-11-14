@@ -11,4 +11,8 @@ public class StringList {
     public static void createList(String string) {
         STRING_LIST = Arrays.stream(string.split("\\s+")).collect(Collectors.toList());
     }
+
+    public static boolean isValidIndex(int index){
+        return index > 0 && index < STRING_LIST.size();
+    }
 }
