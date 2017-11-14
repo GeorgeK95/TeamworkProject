@@ -25,7 +25,7 @@ public class Main {
             }
 
             try {
-                Command command;
+                Command command = null;
                 switch (input[0]) {
 
                     case "append":
@@ -59,6 +59,31 @@ public class Main {
                             throw new InvalidParameters();
                         }
                         command = new ReverseCmd();
+                        break;
+
+                    case "delete":
+                        if (input.length != 2)
+                            throw new InvalidParameters();
+
+                        int index = Integer.parseInt(input[1]);
+
+                        if (!StringList.isValidIndex(index)) {
+                            throw new InvalidIndex(index);
+                        }
+
+                        command = new DeleteCmd(Integer.parseInt(input[1]));
+                        break;
+                    case "sort":
+                        if (input.length != 1)
+                            throw new InvalidParameters();
+
+                        command = new SortCmd();
+                        break;
+                    case "count":
+                        if (input.length != 2)
+                            throw new InvalidParameters();
+
+                        command = new CountCmd(input[1]);
                         break;
 
                     default:
