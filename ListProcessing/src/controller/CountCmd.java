@@ -4,8 +4,6 @@ package controller;
  * Created by George-Lenovo on 6/29/2017.
  */
 
-import io.ConsoleOutputWriter;
-
 import static data.StringList.STRING_LIST;
 
 public class CountCmd extends Command {
@@ -17,6 +15,6 @@ public class CountCmd extends Command {
 
     @Override
     public void execute() {
-        ConsoleOutputWriter.writeLine(String.valueOf(STRING_LIST.stream().filter(x -> x.equals(str)).count()));
+        System.out.println((String.valueOf(STRING_LIST.stream().filter(x -> x.equals(str)).count())));
     }
 }

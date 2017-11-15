@@ -4,8 +4,6 @@ package controller;
  * Created by George-Lenovo on 6/29/2017.
  */
 
-import io.ConsoleOutputWriter;
-
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
@@ -21,6 +19,6 @@ public class SortCmd extends Command {
     @Override
     public void execute() {
         STRING_LIST = this.set.stream().collect(Collectors.toList());
-        ConsoleOutputWriter.writeLine(String.join(" ", STRING_LIST));
+        System.out.println((String.join(" ", STRING_LIST)));
     }
 }

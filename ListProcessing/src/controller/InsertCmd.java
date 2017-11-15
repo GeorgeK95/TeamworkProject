@@ -1,7 +1,5 @@
 package controller;
 
-
-
 import static data.StringList.STRING_LIST;
 
 public class InsertCmd extends Command {
