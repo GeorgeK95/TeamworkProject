@@ -25,23 +25,24 @@ public class Main {
             }
 
             try {
-                Command command = null;
+                Command command;
                 switch (input[0]) {
 
-                    case "append":
+                    case "append" :
                         if (input.length != 2)
                             throw new InvalidParameters();
 
                         command = new AppendCmd(input[1]);
                         break;
 
-                    case "prepend":
+                    case "prepend" :
                         if (input.length != 2)
                             throw new InvalidParameters();
 
                         command = new PrependCmd(input[1]);
                         break;
-                    case "insert": {
+
+                    case "insert" : {
                         if (input.length != 3)
                             throw new InvalidParameters();
 
@@ -51,17 +52,17 @@ public class Main {
                             throw new InvalidIndex(index);
                         }
                         command = new InsertCmd(element, index);
-                    }
-                    break;
+                        }
+                        break;
 
-                    case "reverse":
+                    case "reverse" :
                         if (input.length > 1) {
                             throw new InvalidParameters();
                         }
                         command = new ReverseCmd();
                         break;
 
-                    case "delete":
+                    case "delete" :
                         if (input.length != 2)
                             throw new InvalidParameters();
 
@@ -73,13 +74,15 @@ public class Main {
 
                         command = new DeleteCmd(Integer.parseInt(input[1]));
                         break;
-                    case "sort":
+
+                    case "sort" :
                         if (input.length != 1)
                             throw new InvalidParameters();
 
                         command = new SortCmd();
                         break;
-                    case "count":
+
+                    case "count" :
                         if (input.length != 2)
                             throw new InvalidParameters();
 
@@ -90,8 +93,8 @@ public class Main {
                         throw new InvalidCommand();
                 }
 
-                if (command != null)
-                    command.execute();
+                command.execute();
+
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
