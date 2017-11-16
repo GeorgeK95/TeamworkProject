@@ -12,7 +12,7 @@ public class StringList {
         STRING_LIST = Arrays.stream(string.split("\\s+")).collect(Collectors.toList());
     }
 
-    /*Positions are indexed from 0 to list_size - 1.*/
+    /* Positions are indexed from 0 to list_size - 1. */
     public static boolean isValidIndex(int index) {
         return index >= 0 && index < STRING_LIST.size();
     }

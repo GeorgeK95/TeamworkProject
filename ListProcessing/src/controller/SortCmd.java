@@ -1,9 +1,5 @@
 package controller;
 
-/**
- * Created by George-Lenovo on 6/29/2017.
- */
-
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 

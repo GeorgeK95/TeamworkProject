@@ -19,6 +19,9 @@ public class Main {
 
             String[] input = reader.readLine().split("\\s+");
 
+            // Why not print the first time input like example ???
+            // end 1  Finished ??
+
             if ("end".equals(input[0])) {
                 System.out.println("Finished");
                 break;
@@ -28,21 +31,21 @@ public class Main {
                 Command command;
                 switch (input[0]) {
 
-                    case "append" :
+                    case "append":
                         if (input.length != 2)
                             throw new InvalidParameters();
 
                         command = new AppendCmd(input[1]);
                         break;
 
-                    case "prepend" :
+                    case "prepend":
                         if (input.length != 2)
                             throw new InvalidParameters();
 
                         command = new PrependCmd(input[1]);
                         break;
 
-                    case "insert" : {
+                    case "insert": {
                         if (input.length != 3)
                             throw new InvalidParameters();
 
@@ -52,17 +55,17 @@ public class Main {
                             throw new InvalidIndex(index);
                         }
                         command = new InsertCmd(element, index);
-                        }
-                        break;
+                    }
+                    break;
 
-                    case "reverse" :
+                    case "reverse":
                         if (input.length > 1) {
                             throw new InvalidParameters();
                         }
                         command = new ReverseCmd();
                         break;
 
-                    case "delete" :
+                    case "delete":
                         if (input.length != 2)
                             throw new InvalidParameters();
 
@@ -75,18 +78,26 @@ public class Main {
                         command = new DeleteCmd(Integer.parseInt(input[1]));
                         break;
 
-                    case "sort" :
+                    case "sort":
                         if (input.length != 1)
                             throw new InvalidParameters();
 
                         command = new SortCmd();
                         break;
 
-                    case "count" :
-                        if (input.length != 2)
+                    case "count":
+                        if (input.length != 2) {
                             throw new InvalidParameters();
+                        }
 
                         command = new CountCmd(input[1]);
+                        break;
+                    case "roll":
+                        if (input.length != 2) {
+                            throw new InvalidParameters();
+                        }
+                        command = new RollCmd(input[1]);
+
                         break;
 
                     default:

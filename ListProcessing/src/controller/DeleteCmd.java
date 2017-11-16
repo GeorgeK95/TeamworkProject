@@ -17,6 +17,6 @@ public class DeleteCmd extends Command {
     @Override
     public void execute() {
         STRING_LIST.remove(this.index);
-        System.out.println((String.join(" ", STRING_LIST)));
+        System.out.println(String.join(" ", STRING_LIST));
     }
 }
