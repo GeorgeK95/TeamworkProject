@@ -19,7 +19,6 @@ public class Main {
 
             String[] input = reader.readLine().split("\\s+");
 
-
             try {
                 Command command;
                 switch (input[0]) {
@@ -91,7 +90,7 @@ public class Main {
                         break;
 
                     case "roll":
-                        if (input.length != 2 || !(("left".equals(input[1])) || "right".equals(input[1]))) {
+                        if (input.length != 2 || !("left".equals(input[1]) || "right".equals(input[1]))) {
                             throw new InvalidParameters();
                         }
                         command = new RollCmd(input[1]);

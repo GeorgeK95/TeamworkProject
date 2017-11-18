@@ -18,7 +18,7 @@ public class RollCmd extends Command {
             STRING_LIST.add(firstElement);
 
             System.out.println(String.join(" ", STRING_LIST));
-        } else {
+        } else if("right".equals(position)) {
             int size = STRING_LIST.size() - 1;
 
             String lastElement = STRING_LIST.get(size);
