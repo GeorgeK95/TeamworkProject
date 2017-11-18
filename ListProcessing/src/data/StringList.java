@@ -8,8 +8,9 @@ public class StringList {
 
     public static List<String> STRING_LIST;
 
-    public static void createList(String string) {
+    public static void createAndPrintList(String string) {
         STRING_LIST = Arrays.stream(string.split("\\s+")).collect(Collectors.toList());
+        System.out.println(String.join(" ", STRING_LIST));
     }
 
     /* Positions are indexed from 0 to list_size - 1. */

@@ -18,7 +18,7 @@ public class RollCmd extends Command {
             STRING_LIST.add(firstElement);
 
             System.out.println(String.join(" ", STRING_LIST));
-        } else if ("right".equals(position)) {
+        } else {
             int size = STRING_LIST.size() - 1;
 
             String lastElement = STRING_LIST.get(size);
@@ -27,10 +27,5 @@ public class RollCmd extends Command {
 
             System.out.println(String.join(" ", STRING_LIST));
         }
-        else {
-            System.out.println("Error: invalid command");
-            // need to use public static final String INVALID_COMMAND = "Error: invalid command";
-        }
-
     }
 }

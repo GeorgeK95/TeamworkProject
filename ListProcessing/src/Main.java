@@ -13,19 +13,12 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        StringList.createList(reader.readLine());
+        StringList.createAndPrintList(reader.readLine());
 
         while (true) {
 
             String[] input = reader.readLine().split("\\s+");
 
-            // Why not print the first time input like example ???
-            // end 1  Finished ??
-
-            if ("end".equals(input[0])) {
-                System.out.println("Finished");
-                break;
-            }
 
             try {
                 Command command;
@@ -55,8 +48,8 @@ public class Main {
                             throw new InvalidIndex(index);
                         }
                         command = new InsertCmd(element, index);
-                    }
-                    break;
+                        }
+                        break;
 
                     case "reverse":
                         if (input.length > 1) {
@@ -92,12 +85,19 @@ public class Main {
 
                         command = new CountCmd(input[1]);
                         break;
+
                     case "roll":
-                        if (input.length != 2) {
+                        if (input.length != 2 || !(("left".equals(input[1])) || "right".equals(input[1]))) {
                             throw new InvalidParameters();
                         }
                         command = new RollCmd(input[1]);
+                        break;
 
+                    case "end":
+                        if (input.length > 1)
+                            throw new InvalidParameters();
+
+                        command = new EndCmd();
                         break;
 
                     default:
