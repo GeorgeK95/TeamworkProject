@@ -62,10 +62,14 @@ public class Main {
                         if (input.length != 2)
                             throw new InvalidParameters();
 
-                        int index = Integer.parseInt(input[1]);
-
-                        if (!StringList.isValidIndex(index)) {
-                            throw new InvalidIndex(index);
+                        try {
+                            int index = Integer.parseInt(input[1]);
+                            if (!StringList.isValidIndex(index)) {
+                                throw new InvalidIndex(index);
+                            }
+                        }
+                        catch (NumberFormatException nfe) {
+                            throw new InvalidParameters();
                         }
 
                         command = new DeleteCmd(Integer.parseInt(input[1]));
