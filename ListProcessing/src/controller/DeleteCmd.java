@@ -1,9 +1,5 @@
 package controller;
 
-/**
- * Created by George-Lenovo on 6/29/2017.
- */
-
 import static data.StringList.STRING_LIST;
 
 public class DeleteCmd extends Command {
